@@ -1,0 +1,20 @@
+#+title: Example Wire-Cell Toolkit package
+
+This package shows bare-bones skeleton for a package that can be built
+against Wire-Cell Toolkit using WCT's own build system.  
+
+It takes a simple form with ~lib/~ directory at top level.  You may also
+make a compound package with sub-packages as sub-directories like WCT
+itself.
+
+Build, test and install this package much like you would WCT itself:
+
+#+begin_example
+  $ ./wcb configure --prefix=/path/to/install \
+        --with-wct=$HOME/opt/wct \
+        [...maybe other --with-* flags...]
+  $ ./wcb
+  $ ./wcb install
+#+end_example
+
+More information can be seen in the [[https://github.com/WireCell/waf-tools/blob/master/README.org][waf-tools README]].
