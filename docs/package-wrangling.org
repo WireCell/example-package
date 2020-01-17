@@ -1,0 +1,49 @@
+#+title: Wire-Cell Package Wrangling
+
+Wire-Cell Toolkit supports many ways to deal with source packaging.
+This notes a few.
+
+* Split off a WCT package
+
+The ~wire-cell-toolkit~ package has several "sub-packages" each in its
+own sub-directory.  It is possible to split one off from the
+~wire-cell-toolkit~ umbrella and into its own repository.  In this
+example, ~wire-cell-zpb~ was originally developed in ~zpb/~ subdirectory
+of a GitHub fork of ~wire-cell-toolkit~.  For its initial development
+the developer wanted to work on it as a separate package that followed
+the pattern of this ~example-package~.  Here's how it was split out:
+
+#+begin_example
+  $ mkdir -p /path/to/wct-zpb
+  $ cd /path/to/wct-zpb
+  $ git init --bare
+  
+  $ cd /path/to/wire-cell-toolkit
+  $ git subtree split --prefix=zpb -b zpbsplit
+  $ git push /path/to/wct-zpb zpbsplit:master
+#+end_example
+
+The bare ~wct-zpb/~ repo now has all commits that touch the ~zpb/~ subdirectory.  A [[https://github.com/brettviren/wire-cell-zpb][new repo on GitHub]] is made and
+
+#+begin_example
+  $ cd /path/to/wct-zpb
+  $ git remote add origin git@github.com:brettviren/wire-cell-zpb.git
+  $ git push origin master
+
+  $ cd /path/to/
+  $ git clone git@github.com:brettviren/wire-cell-zpb.git
+#+end_example
+
+Optionally, remove the now split directory
+
+#+begin_example
+  $ cd /path/to/wire-cell-toolkit
+  $ mv zpb zpb.moved
+  $ git commit -am "Move zpb to its own repo"
+  $ git push origin master
+#+end_example
+
+* Merge in a WCT package
+
+t.b.d. do the reverse of above
+
