@@ -34,7 +34,13 @@ The bare ~wct-zpb/~ repo now has all commits that touch the ~zpb/~ subdirectory.
   $ git clone git@github.com:brettviren/wire-cell-zpb.git
 #+end_example
 
-Optionally, remove the now split directory
+At this point one likely needs:
+
+- add ~wcb~ and ~wscript~ from WCT or the [[https://github.com/wirecell/example-package][example]] package
+- modify ~wscript~ with any additional dependencies
+- place contents of old ~wscript_build~ into ~wscript~ and remove ~wscript_build~
+
+Optionally, remove the split directory from WCT-proper.
 
 #+begin_example
   $ cd /path/to/wire-cell-toolkit

@@ -18,3 +18,5 @@ Build, test and install this package much like you would WCT itself:
 #+end_example
 
 More information can be seen in the [[https://github.com/WireCell/waf-tools/blob/master/README.org][waf-tools README]].
+
+See also [[https://github.com/brettviren/wire-cell-zpb][wire-cell-zpb]], a "real" package following the patterns of this example.
